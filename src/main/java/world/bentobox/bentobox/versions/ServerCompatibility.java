@@ -76,6 +76,10 @@ public class ServerCompatibility {
         SPIGOT(Compatibility.COMPATIBLE),
         PAPER(Compatibility.SUPPORTED),
         PURPUR(Compatibility.SUPPORTED),
+        /**
+         * @since 1.21.0
+         */
+        SAPPHIRE(Compatibility.SUPPORTED),
         TACOSPIGOT(Compatibility.NOT_SUPPORTED),
         AKARIN(Compatibility.NOT_SUPPORTED),
         /**
