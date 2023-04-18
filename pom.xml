@@ -52,7 +52,7 @@
     <distributionManagement>
         <repository>
             <id>sapphiremc-snapshots</id>
-            <url>http://repo.denaryworld.ru/snapshots</url>
+            <url>https://the-planet.fun/repo/snapshots</url>
         </repository>
     </distributionManagement>
 
