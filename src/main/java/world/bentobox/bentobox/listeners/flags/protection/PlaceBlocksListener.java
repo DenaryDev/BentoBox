@@ -3,6 +3,7 @@ package world.bentobox.bentobox.listeners.flags.protection;
 import java.util.Set;
 
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,7 +15,6 @@ import org.bukkit.event.hanging.HangingPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import world.bentobox.bentobox.BentoBox;
 import world.bentobox.bentobox.api.flags.FlagListener;
 import world.bentobox.bentobox.lists.Flags;
 
@@ -45,7 +45,7 @@ public class PlaceBlocksListener extends FlagListener
         // Crops
         if (against.equals(Material.FARMLAND) && SEEDS.contains(e.getItemInHand().getType())) {
             this.checkIsland(e, e.getPlayer(), e.getBlock().getLocation(), Flags.CROP_PLANTING);
-        } else {        
+        } else {
             this.checkIsland(e, e.getPlayer(), e.getBlock().getLocation(), Flags.PLACE_BLOCKS);
         }
     }
@@ -71,7 +71,6 @@ public class PlaceBlocksListener extends FlagListener
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onPlayerHitItemFrame(PlayerInteractEntityEvent e)
     {
-        BentoBox.getInstance().logDebug(e.getEventName());
         if (e.getRightClicked().getType().equals(EntityType.ITEM_FRAME) ||
                 e.getRightClicked().getType().equals(EntityType.GLOW_ITEM_FRAME))
         {
@@ -126,7 +125,7 @@ public class PlaceBlocksListener extends FlagListener
             {
                 this.checkIsland(e, e.getPlayer(), e.getPlayer().getLocation(), Flags.PLACE_BLOCKS);
             }
-            else if (e.getMaterial().name().contains("BOAT"))
+            else if (Tag.ITEMS_BOATS.isTagged(e.getMaterial()))
             {
                 this.checkIsland(e, e.getPlayer(), e.getPlayer().getLocation(), Flags.BOAT);
             }
